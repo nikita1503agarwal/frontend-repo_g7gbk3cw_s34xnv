@@ -1,49 +1,34 @@
-import Hero from './components/Hero';
-import BrandBanner from './components/BrandBanner';
+import StoryHero from './components/StoryHero';
+import StorySection from './components/StorySection';
 import Vision from './components/Vision';
 import Events from './components/Events';
 import Contact from './components/Contact';
+import BrandBanner from './components/BrandBanner';
+import { motion } from 'framer-motion';
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero with Spline security shield */}
-      <Hero />
+    <div className="min-h-screen bg-black text-white snap-y snap-mandatory overflow-x-hidden" style={{ scrollBehavior: 'smooth' }}>
+      <StoryHero />
 
-      {/* Neon logo treatment area */}
-      <section className="bg-black py-14">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <div className="mx-auto h-28 w-28 rounded-full border border-white/10 bg-[#000003] shadow-[0_0_40px_rgba(97,4,236,0.6)] flex items-center justify-center">
-            <div className="relative">
-              <div className="h-12 w-12 rounded-full border-2 border-[#6104EC]" />
-              <div className="absolute inset-0 blur-xl bg-[#6104EC]/40 rounded-full" />
-            </div>
-          </div>
-          <h2 className="mt-6 text-2xl font-semibold text-[#E5E5E5]">
-            KFUPM Cybersecurity Club
-          </h2>
-          <p className="mt-2 text-gray-400">
-            Neon cyber identity with shield, circuitry, and a strong protective spirit.
-          </p>
-        </div>
-      </section>
+      <StorySection id="vision" title="Vision & Goals" subtitle="We empower students at KFUPM with practical cybersecurity skills, a strong ethical mindset, and opportunities to collaborate on real-world challenges.">
+        <Vision />
+      </StorySection>
 
-      {/* Vision & goals */}
-      <Vision />
+      <StorySection id="brand" title="Identity & Pride" subtitle="A neon cyber shield, deep-space gradients, and a techno eagle represent our ethos.">
+        <BrandBanner />
+      </StorySection>
 
-      {/* Banner with eagle and bilingual title */}
-      <BrandBanner />
+      <StorySection id="events" title="Missions & Operations" subtitle="Join upcoming workshops, CTFs, and talks. Review past missions to learn and iterate.">
+        <Events />
+      </StorySection>
 
-      {/* Events (upcoming + finished) with registration */}
-      <Events />
+      <StorySection id="contact" title="Signal the Shield" subtitle="Questions, partnerships, or ideas? Send us a secure message.">
+        <Contact />
+      </StorySection>
 
-      {/* Contact */}
-      <Contact />
-
-      <footer className="border-t border-white/10 bg-black/90 py-8 text-center text-gray-400">
-        <p>
-          © {new Date().getFullYear()} KFUPM Cybersecurity Club — Built with a neon cyber aesthetic.
-        </p>
+      <footer className="snap-start border-t border-white/10 bg-black/90 py-8 text-center text-gray-400">
+        <p>© {new Date().getFullYear()} KFUPM Cybersecurity Club — Neon cyber aesthetic.</p>
       </footer>
     </div>
   );
